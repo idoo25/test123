@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.gui.MainMenuController">
+   <children>
+      <!-- Header -->
+      <Label alignment="CENTER" text="Parking Management System" textAlignment="CENTER" 
+             style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 30;">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      
+      <!-- Menu Options -->
+      <VBox spacing="30.0" alignment="CENTER" style="-fx-padding: 50;">
+         <children>
+            <!-- Park Now Option -->
+            <VBox spacing="10.0" alignment="CENTER" style="-fx-background-color: #e8f5e8; -fx-padding: 20; -fx-border-color: #4CAF50; -fx-border-width: 2; -fx-border-radius: 10;">
+               <children>
+                  <Label text="🚗 Park Now" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2E7D32;" />
+                  <Label text="Need to park immediately? Check what's available right now!" textAlignment="CENTER" />
+                  <Label text="• Instant availability check" />
+                  <Label text="• Automatic assignment to longest duration spot" />
+                  <Label text="• No advance booking needed" />
+                  <Button fx:id="parkNowButton" onAction="#openParkNow" text="Park My Car Now!" 
+                          style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 15;" />
+               </children>
+            </VBox>
+            
+            <!-- Pre-booking Option -->
+            <VBox spacing="10.0" alignment="CENTER" style="-fx-background-color: #e3f2fd; -fx-padding: 20; -fx-border-color: #2196F3; -fx-border-width: 2; -fx-border-radius: 10;">
+               <children>
+                  <Label text="📅 Pre-book Parking" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1976D2;" />
+                  <Label text="Plan ahead? Book your parking for future dates!" textAlignment="CENTER" />
+                  <Label text="• Calendar view (1-7 days ahead)" />
+                  <Label text="• Optimal time slot selection" />
+                  <Label text="• Guaranteed spot assignment" />
+                  <Button fx:id="preBookButton" onAction="#openPreBooking" text="View Calendar &amp; Book" 
+                          style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 15;" />
+               </children>
+            </VBox>
+            
+            <!-- Exit -->
+            <Button fx:id="exitButton" onAction="#exitApplication" text="Exit Application" 
+                    style="-fx-background-color: #757575; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10;" />
+         </children>
+      </VBox>
+      
+      <!-- Footer Info -->
+      <VBox spacing="5.0" style="-fx-padding: 20; -fx-background-color: #f5f5f5;">
+         <children>
+            <Label text="ℹ️ System Information:" style="-fx-font-weight: bold;" />
+            <Label text="• 100 parking spots available (numbered 1-100)" />
+            <Label text="• 15-minute time slot precision" />
+            <Label text="• Maximum 4 hours per booking" />
+            <Label text="• Real-time availability updates" />
+         </children>
+      </VBox>
+   </children>
+</VBox>

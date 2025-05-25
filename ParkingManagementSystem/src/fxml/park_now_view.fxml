@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.gui.ParkNowController">
+   <children>
+      <!-- Header -->
+      <Label alignment="CENTER" text="Park Now - Immediate Parking" textAlignment="CENTER" 
+             style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-padding: 15;">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      <!-- Current Status -->
+      <VBox spacing="10.0" style="-fx-padding: 20; -fx-background-color: #f8f9fa;">
+         <children>
+            <Label fx:id="currentTimeLabel" text="Current time: 14:32:15">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            
+            <Label fx:id="availabilityStatusLabel" text="✓ Spots Available">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Occupancy:" />
+                  <ProgressBar fx:id="occupancyBar" prefWidth="200.0" progress="0.65" />
+                  <Label fx:id="occupancyLabel" text="65/100 spots occupied (65.0%)" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <Separator />
+      
+      <!-- Check Availability Section -->
+      <VBox spacing="15.0" style="-fx-padding: 20;">
+         <children>
+            <Label text="Check Current Availability:" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Button fx:id="checkAvailabilityButton" onAction="#checkAvailability" text="Check What's Available Now" 
+                          style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+                  <Button fx:id="refreshButton" onAction="#refreshAvailability" text="🔄 Refresh" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      
+      <!-- Available Spot Details -->
+      <VBox fx:id="availableSpotArea" spacing="15.0" 
+            style="-fx-padding: 20; -fx-background-color: #e8f5e8; -fx-border-color: #4CAF50; -fx-border-width: 2;" 
+            visible="false">
+         <children>
+            <Label text="🎯 Best Available Spot:" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <GridPane hgap="20.0" vgap="10.0">
+               <children>
+                  <Label text="Spot Number:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;" />
+                  <Label fx:id="bestSpotLabel" text="Spot #15" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+                         style="-fx-font-size: 18px; -fx-text-fill: #2196F3; -fx-font-weight: bold;" />
+                  
+                  <Label text="Available Duration:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;" />
+                  <Label fx:id="durationLabel" text="Available for 3.5 hours" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  
+                  <Label text="Valid Until:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;" />
+                  <Label fx:id="validUntilLabel" text="Valid until 18:00" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+      
+      <!-- Park Now Section -->
+      <VBox spacing="15.0" style="-fx-padding: 20;">
+         <children>
+            <Label text="Park Your Car:" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+            
+            <HBox spacing="10.0" alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Customer ID:" />
+                  <TextField fx:id="customerIdField" promptText="Enter your Customer ID" prefWidth="200.0" />
+               </children>
+            </HBox>
+            
+            <Button fx:id="parkNowButton" onAction="#parkNow" text="🚗 Park My Car Now!" disable="true" 
+                    style="-fx-background-color: #FF5722; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-padding: 10;" />
+         </children>
+      </VBox>
+      
+      <!-- Info Section -->
+      <VBox spacing="10.0" style="-fx-padding: 20; -fx-background-color: #fff3cd; -fx-border-color: #ffeaa7;">
+         <children>
+            <Label text="ℹ️ How it works:" style="-fx-font-weight: bold;" />
+            <Label text="• Click 'Check What's Available Now' to see immediate parking options" />
+            <Label text="• System finds the spot with the longest available duration" />
+            <Label text="• Enter your Customer ID and click 'Park My Car Now!'" />
+            <Label text="• Your car will be assigned immediately - no advance booking needed" />
+            <Label text="• Remember your spot number and return before the time limit" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
